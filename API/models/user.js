@@ -43,7 +43,7 @@ const UserSchema = new mongoose.Schema({
 // Para todos o campos unique
 UserSchema.plugin(uniqueValidator, { message: " Ja esta a ser utilizado" });
 
-// Uma nona senha
+// Uma nova senha
 UserSchema.methods.setPassword = function(password) {
     this.salt = crypto.randomBytes(16).toString("hex");
     this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, "sha512").toString("hex");
