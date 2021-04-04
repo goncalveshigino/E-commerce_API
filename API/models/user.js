@@ -54,7 +54,7 @@ UserSchema.methods.passwordValidator = function(password) {
     return hash === this.hash;
 };
 
-UserSchema.methods.createToken = function() {
+UserSchema.methods.createTokenRecovery = function() {
     const today = new Date();
     const exp = new Date(today)
     exp.setDate(today.getDate() + 1);
